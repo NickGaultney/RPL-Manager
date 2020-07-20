@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+
+<div class="title-container text-light">
+  <h1>Printers</h1>
+  <%= link_to 'New Printer', new_printer_path, class: "btn btn-default border rounded text-light" %>
+</div>
+
+<div class="printers">
+  <% @printers.each do |printer| %>
+  <div class="printer border rounded">
+    <div class="thumbnail">
+      <div class="caption text-light p-2">
+        <h3><%= link_to printer.name, printer_path(printer), class: colorize(printer.status) %></h3>
+        <p><%= printer.status %></p>
+        <p>
+          <%= link_to "Edit", edit_printer_path(printer), class: "btn btn-default border rounded text-warning p-0 px-2" %>
+          <%= link_to 'Delete', printer, method: :delete, data: { confirm: 'Are you sure?' }, class: "text-danger p-1" %>
+        </p>
+      </div>
+    </div>
+  </div>
+  <br>
+  <% end %>
+</div>
+
+

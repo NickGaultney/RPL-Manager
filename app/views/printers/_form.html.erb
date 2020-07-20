@@ -1,0 +1,27 @@
+<%= form_with(model: printer, local: true) do |form| %>
+  <% if printer.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(printer.errors.count, "error") %> prohibited this printer from being saved:</h2>
+
+      <ul>
+      <% printer.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :printer_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :status %>
+    <%= form.number_field :status, id: :printer_status %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

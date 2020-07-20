@@ -1,0 +1,2 @@
+class PrintersApiController < ApplicationController
+end

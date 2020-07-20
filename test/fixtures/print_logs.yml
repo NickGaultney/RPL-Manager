@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  printer: one
+  file_name: MyString
+  filament_weight: 1.5
+  print_time: 1.5
+  cost: 1.5
+  status: MyString
+  boolean: MyString
+
+two:
+  printer: two
+  file_name: MyString
+  filament_weight: 1.5
+  print_time: 1.5
+  cost: 1.5
+  status: MyString
+  boolean: MyString

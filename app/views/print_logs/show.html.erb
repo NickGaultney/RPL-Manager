@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Printer:</strong>
+  <%= @print_log.printer %>
+</p>
+
+<p>
+  <strong>File name:</strong>
+  <%= @print_log.file_name %>
+</p>
+
+<p>
+  <strong>Filament weight:</strong>
+  <%= @print_log.filament_weight %>
+</p>
+
+<p>
+  <strong>Print time:</strong>
+  <%= @print_log.print_time %>
+</p>
+
+<p>
+  <strong>Cost:</strong>
+  <%= @print_log.cost %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @print_log.status %>
+</p>
+
+<%= link_to 'Edit', edit_print_log_path(@print_log) %> |
+<%= link_to 'Back', print_logs_path %>

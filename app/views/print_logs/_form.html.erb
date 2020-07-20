@@ -1,0 +1,47 @@
+<%= form_with(model: print_log, local: true) do |form| %>
+  <% if print_log.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(print_log.errors.count, "error") %> prohibited this print_log from being saved:</h2>
+
+      <ul>
+      <% print_log.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :printer_name %>
+    <%= form.text_field :printer_name, id: :print_log_printer_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :file_name %>
+    <%= form.text_field :file_name, id: :print_log_file_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :filament_weight %>
+    <%= form.text_field :filament_weight, id: :print_log_filament_weight %>
+  </div>
+
+  <div class="field">
+    <%= form.label :print_time %>
+    <%= form.text_field :print_time, id: :print_log_print_time %>
+  </div>
+
+  <div class="field">
+    <%= form.label :cost %>
+    <%= form.text_field :cost, id: :print_log_cost %>
+  </div>
+
+  <div class="field">
+    <%= form.label :status %>
+    <%= form.text_field :status, id: :print_log_status %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
