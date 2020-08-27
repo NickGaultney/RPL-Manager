@@ -13,11 +13,11 @@ module ApplicationHelper
 	def colorize(status)
 		case status
 		when 0
-			"text-danger"
-		when 1
 			"text-success"
-		when 2
+		when 1
 			"text-warning"
+		when 2
+			"text-info"
 		end
 	end
 end
