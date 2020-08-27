@@ -1,5 +1,6 @@
 class Api::V1::PrintersApiController < ApplicationController
 	before_action :find_printer_by_name, only: [:show, :update, :destroy]
+	skip_before_action :verify_authenticity_token
 
 	def index
 		@printers = Printer.all
