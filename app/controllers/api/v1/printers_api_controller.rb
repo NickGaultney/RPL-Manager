@@ -45,6 +45,6 @@ class Api::V1::PrintersApiController < ApplicationController
 	end
 
 	def printer_params
-		params.require(:name).require(:status)
+		params.require(:printers_api).permit(:name, :status)
 	end
 end
