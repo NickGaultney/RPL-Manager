@@ -1,4 +1,5 @@
 class Api::V1::PrintLogsApiController < ApplicationController
+	skip_before_action :verify_authenticity_token
 
 	def index
 		@print_logs = PrintLog.all
@@ -26,6 +27,6 @@ class Api::V1::PrintLogsApiController < ApplicationController
 	private
 
 	def print_log_params
-		params.require(:print_log).permit(:printer_id, :printer_name, :file_name, :filament_weight, :print_time, :cost, :status)
+		params.permit(:printer_id, :printer_name, :file_name, :filament_weight, :print_time, :cost, :status)
 	end
 end
