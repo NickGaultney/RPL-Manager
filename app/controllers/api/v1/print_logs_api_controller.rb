@@ -1,5 +1,6 @@
 class Api::V1::PrintLogsApiController < ApplicationController
 	skip_before_action :verify_authenticity_token
+	before_action :find_log_by_id, only: [:update]
 
 	def index
 		@print_logs = PrintLog.all
@@ -24,6 +25,12 @@ class Api::V1::PrintLogsApiController < ApplicationController
 	end
 
 	def update
+		if @print_log 
+			@print_log.update(print_log_params)
+			render json: { message: 'Printer successfully Updated!' }, status: 200
+		else
+			render json: { error: 'Unable to update Printer...' }, status: 400
+		end
 	end
 
 	def destroy
@@ -33,6 +40,10 @@ class Api::V1::PrintLogsApiController < ApplicationController
 
 	def find_printer_by_name
 		@printer = Printer.find_by(name: params[:printer_name])
+	end
+
+	def find_log_by_id
+		@print_log = PrintLog.find(params[:id])
 	end
 
 	def print_log_params

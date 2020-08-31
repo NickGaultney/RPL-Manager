@@ -18,6 +18,8 @@ module ApplicationHelper
 			"text-warning"
 		when 2
 			"text-info"
+		when 3
+			"text-danger"
 		end
 	end
 end
