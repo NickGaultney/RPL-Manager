@@ -10,14 +10,12 @@ class Api::V1::PrintLogsApiController < ApplicationController
 	end
 
 	def create
-		log_params = print_log_params
-
 		params[:printer_id] = find_printer_by_name.id
 		convert_time_to_minutes
 		convert_weight_to_grams
 		params[:cost] = 0.0
 
-		@print_log = PrintLog.new(log_params)
+		@print_log = PrintLog.new(print_log_params)
 		if @print_log.save
 			render json: @print_log
 		else
