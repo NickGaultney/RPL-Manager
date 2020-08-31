@@ -10,7 +10,7 @@ class Api::V1::PrintLogsApiController < ApplicationController
 	end
 
 	def create
-		@print_log = PrintLog.new(print_logs_params)
+		@print_log = PrintLog.new(print_log_params)
 		if @print_log.save
 			render json: @print_log
 		else
