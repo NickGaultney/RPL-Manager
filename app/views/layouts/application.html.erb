@@ -24,6 +24,7 @@
 			    </ul>
           <% if logged_in? %>
             <%= current_user.username %>
+            <%= link_to "Logout", logout_path, class: "nav-link" %>
           <%else%>
             <%= link_to "Sign In", login_path, class: "nav-link" %>
           <%end%>
