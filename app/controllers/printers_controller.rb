@@ -10,7 +10,7 @@ class PrintersController < ApplicationController
   # GET /printers/1
   # GET /printers/1.json
   def show
-    @print_logs = PrintLog.where(name: @printer.name)
+    @print_logs = PrintLog.where(printer_name: @printer.name)
   end
 
   # GET /printers/new
