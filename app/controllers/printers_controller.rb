@@ -1,5 +1,6 @@
 class PrintersController < ApplicationController
   before_action :set_printer, only: [:show, :edit, :update, :destroy]
+  skip_before_action :authorized, only: [:index, :show]
 
   # GET /printers
   # GET /printers.json

@@ -1,5 +1,6 @@
   class PrintLogsController < ApplicationController
   before_action :set_print_log, only: [:show, :edit, :update, :destroy]
+  skip_before_action :authorized, only: [:index, :show]
 
   # GET /print_logs
   # GET /print_logs.json

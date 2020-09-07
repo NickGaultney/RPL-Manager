@@ -1,26 +1,10 @@
 Rails.application.routes.draw do
-  get 'sessions/new'
+  get 'login', to: 'sessions#new'
+  post 'login', to: 'sessions#create'
 
-  get 'sessions/create'
-
-  get 'sessions/login'
-
-  get 'users/new'
-
-  get 'users/create'
-
+  resources :users, only: [:new, :create]
   resources :printers
   resources :print_logs
-  
-=begin
-  namespace :api do
-  	namespace :v1 do
-  		resources :printers_api, param: :name
-  		resources :print_logs_api, param: :name
-  	end
-  end
-=end
-  get '/printers', to: 'printer#index'
 
   namespace :api do
     namespace :v1 do
