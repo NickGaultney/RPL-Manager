@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :printers
   resources :print_logs
-
+  
 =begin
   namespace :api do
   	namespace :v1 do
@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   	end
   end
 =end
+  get '/printers', to: 'printer#index'
 
   namespace :api do
     namespace :v1 do

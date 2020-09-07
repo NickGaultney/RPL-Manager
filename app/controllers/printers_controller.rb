@@ -10,6 +10,7 @@ class PrintersController < ApplicationController
   # GET /printers/1
   # GET /printers/1.json
   def show
+    @print_logs = PrintLog.find(:all, group: @printer.name)
   end
 
   # GET /printers/new
