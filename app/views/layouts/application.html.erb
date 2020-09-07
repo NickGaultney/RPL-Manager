@@ -23,7 +23,7 @@
 			      </li>
             <li class="nav-item">
               <% if logged_in? %>
-                <h1><%= current_user.username %></h1>
+                <%= current_user.username %>
               <%else%>
                 <%= link_to "Sign In", login_path, class: "nav-link" %>
               <%end%>

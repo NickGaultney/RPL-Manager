@@ -30,9 +30,11 @@
                 <td> <%= print_log.print_time %> min </td>
                 <td> $<%= number_with_precision print_log.cost, :precision => 2 %> </td>
                 <td class="text-right"> 
-                  <%= link_to "Edit", edit_print_log_path(print_log), class: "btn btn-default border rounded text-warning p-0 px-1" %>
-                  <%= link_to 'Delete', print_log, method: :delete, data: { confirm: 'Are you sure?' }, 
-                  class: "btn btn-default border rounded text-danger p-0 px-1" %> 
+                  <% if logged_in? %>
+                    <%= link_to "Edit", edit_print_log_path(print_log), class: "btn btn-default border rounded text-warning p-0 px-1" %>
+                    <%= link_to 'Delete', print_log, method: :delete, data: { confirm: 'Are you sure?' }, 
+                    class: "btn btn-default border rounded text-danger p-0 px-1" %> 
+                  <%end%>
                 </td>
               </tr>
           </div>
