@@ -4,7 +4,7 @@ class PrintersController < ApplicationController
   # GET /printers
   # GET /printers.json
   def index
-    @printers = Printer.order(order: "name").all
+    @printers = Printer.order(:name).all
   end
 
   # GET /printers/1
