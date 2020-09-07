@@ -1,4 +1,14 @@
 Rails.application.routes.draw do
+  get 'sessions/new'
+
+  get 'sessions/create'
+
+  get 'sessions/login'
+
+  get 'users/new'
+
+  get 'users/create'
+
   resources :printers
   resources :print_logs
   
