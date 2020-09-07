@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
 		@user = User.find_by(username: params[:username])
 
 		if @user && @user.authenticate(params[:password])
-			sessions[:user_id] = @user.id
+			session[:user_id] = @user.id
 			redirect_to root_path
 		else
 			redirect_to login_path
@@ -19,7 +19,7 @@ class SessionsController < ApplicationController
 	end
 
 	def logout
-		sessions[:user_id] = nil
+		session[:user_id] = nil
 		redirect_to root_path
 	end
 end
