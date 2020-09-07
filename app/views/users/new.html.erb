@@ -2,6 +2,8 @@
 	<h1>Register</h1>
 </div>
 
+<%= render 'form', user: @user %>
+
 <%= form_for @user do |f|%>
   <%= f.label :username%><br>
   <%= f.text_field :username%><br>
