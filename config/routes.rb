@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'
+  get 'logout', to: 'sessions#logout'
 
   resources :users, only: [:new, :create]
   resources :printers
