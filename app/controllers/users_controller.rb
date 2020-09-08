@@ -9,8 +9,8 @@ class UsersController < ApplicationController
 		@admin = User.first
 		if @admin
 			respond_to do |format|
-				redirect_to root_path
 				@admin.errors[:base] << "Only one user allowed"
+				format.html { render :new }
 				format.json { render json: @admin.errors, status: :unprocessable_entity }
 				return
 			end
