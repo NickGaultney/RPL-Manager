@@ -33,13 +33,14 @@
   	</header>
 
   	<section class="container">
-  			<% flash.each do |type, msg| %>
-          <br>
-          <div class="<%= alert_class(type) %>">
-            <%= msg %>
-          </div>
-  			<% end %>
-    	<%= yield %>
+			<% flash.each do |type, msg| %>
+        <br>
+        <div class="alert alert-error">
+          <%= msg %>
+        </div>
+			<% end %>
+
+      <%= yield %>
     </section>
   </body>
 </html>
