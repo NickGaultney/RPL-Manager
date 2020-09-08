@@ -8,8 +8,9 @@ class UsersController < ApplicationController
 	def create
 		@admin = User.first
 		if @admin
-			format.html { redirect_to root_path, notice: 'A User already exists. There can only be one' }
-			redirect_to root_path 
+			respond_to do |format|
+				format.html { redirect_to root_path, notice: 'A User already exists. There can only be one' }
+			end
 		end
 
 		@user = User.new(user_params)
