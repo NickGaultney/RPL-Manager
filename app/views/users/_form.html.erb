@@ -11,17 +11,17 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :username %>
     <%= form.text_field :username, id: :username %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :password %>
     <%= form.password_field :password, id: :password %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class:"btn btn-primary" %>
   </div>
 <% end %>
