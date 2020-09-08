@@ -8,12 +8,7 @@ class UsersController < ApplicationController
 	def create
 		@admin = User.first
 		if @admin
-			respond_to do |format|
-				@admin.errors[:base] << "Only one user allowed"
-				format.html { render :new }
-				format.json { render json: @admin.errors, status: :unprocessable_entity }
-				return
-			end
+			redirect_to root_path, alert: "Only one User Can exist"
 		end
 
 		@user = User.new(user_params)

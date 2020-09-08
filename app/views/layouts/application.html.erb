@@ -34,8 +34,8 @@
 
   	<section class="container">
   		<div id="flash">
-  			<% flash.each do |key, value| %>
-  			<div class="flash alert <%= alert_class(key) %>"><%= value %></div>	
+  			<% flash.each do |type, msg| %>
+  			<div class="alert alert-info"><%= msg %></div>	
   			<% end %>
   		</div>
     	<%= yield %>
