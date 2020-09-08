@@ -10,6 +10,7 @@ class UsersController < ApplicationController
 		if @admin
 			respond_to do |format|
 				format.html { redirect_to root_path, notice: 'A User already exists. There can only be one' }
+				return
 			end
 		end
 
