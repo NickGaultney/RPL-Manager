@@ -8,8 +8,7 @@ class UsersController < ApplicationController
 	def create
 		@admin = User.first
 		if @admin
-			@admin.errors[:base] << "A user already exists. Only one user allowed"
-			format.json { render json: @admin.errors, status: :unprocessable_entity }
+			format.html { redirect_to root_path, notice: 'A User already exists. There can only be one' }
 			redirect_to root_path 
 		end
 
