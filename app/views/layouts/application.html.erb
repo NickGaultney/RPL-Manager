@@ -33,19 +33,13 @@
   	</header>
 
   	<section class="container">
-  		<div id="flash">
   			<% flash.each do |type, msg| %>
           <br>
-          <% if type == :notice %>
-  		      <div class="alert alert-info"><%= msg %></div>	
-          <% elsif type == :alert %>
-            <div class="alert alert-danger"><%= msg %></div>  
-          <% elsif type == :success %>
-            <div class="alert alert-success"><%= msg %></div>
-          <%end%>
+          <div class="<%= alert_class(type) %>">
+            <%= msg %>
+          </div>
   			<% end %>
-  		</div>
     	<%= yield %>
-	</section>
+    </section>
   </body>
 </html>

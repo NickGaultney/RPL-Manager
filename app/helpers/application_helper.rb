@@ -1,13 +1,11 @@
 module ApplicationHelper
 	def alert_class(flash_type)
 		case flash_type.to_sym
-		when :notice
-			"alert_success"
-		when :alert
-			"alert-warning"
-		when :error
-			"alert_danger"
-		end
+			when :notice then "alert alert-info"
+	        when :success then "alert alert-success"
+	        when :error then "alert alert-error"
+	        when :alert then "alert alert-error"
+    	end
 	end
 
 	def colorize(status)
