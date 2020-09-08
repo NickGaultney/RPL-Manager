@@ -9,6 +9,7 @@ class UsersController < ApplicationController
 		@admin = User.first
 		if @admin
 			redirect_to root_path, alert: "Only one User Can exist"
+			return
 		end
 
 		@user = User.new(user_params)
