@@ -6,6 +6,13 @@ class UsersController < ApplicationController
 	end
 
 	def create
+		@admin = User.first
+		if @admin
+			@admin.errors[:base] << "A user already exists. Only one user allowed"
+			format.json { render json: @admin.errors, status: :unprocessable_entity }
+			redirect_to root_path 
+		end
+
 		@user = User.new(user_params)
 		respond_to do |format|
 			if @user.save
