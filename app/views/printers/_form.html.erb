@@ -11,17 +11,17 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name, id: :printer_name %>
+  <div class="form-group">
+    <%= form.label :name, class:"text-light" %>
+    <%= form.text_field :name, id: :printer_name, class:"form-control" %>
   </div>
 
-  <div class="field">
-    <%= form.label :status %>
-    <%= form.number_field :status, id: :printer_status %>
+  <div class="form-group">
+    <%= form.label :status, class:"text-light" %>
+    <%= form.number_field :status, id: :printer_status, class:"form-control" %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class:"btn btn-primary" %>
   </div>
 <% end %>
