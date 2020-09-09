@@ -10,7 +10,7 @@
   <div class="printer border rounded">
     <div class="thumbnail">
       <div class="caption text-light p-2">
-        <h3 class="justify-content-center"><%= link_to printer.name, printer_path(printer), class: colorize(printer.status) %></h3>
+        <h3><%= link_to printer.name, printer_path(printer), class: colorize(printer.status) %></h3>
         <p><% printer.status %></p>
         <p>
           <% if logged_in? %>
