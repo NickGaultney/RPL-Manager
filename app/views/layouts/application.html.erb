@@ -23,10 +23,10 @@
 			      </li>
 			    </ul>
           <% if logged_in? %>
-            <%= current_user.username %>
-            <%= link_to "Logout", logout_path, class: "btn btn-link" %>
+            <%= current_user.username, class: "badge badge-success" %>
+            <%= link_to "Logout", logout_path, class: "btn btn-primary" %>
           <%else%>
-            <%= link_to "Sign In", login_path, class: "btn btn-link" %>
+            <%= link_to "Sign In", login_path, class: "btn btn-primary" %>
           <%end%>
 			  </div>
   		</nav>
