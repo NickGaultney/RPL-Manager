@@ -22,20 +22,11 @@
 			        <%= link_to "Print Logs", print_logs_path, class: "nav-link" %>
 			      </li>
 			    </ul>
-          <ul class="navbar-nav mr-auto">
-            <% if logged_in? %>
-              <li>
-                <div class="text-light"><%= current_user.username %></div>
-              </li>
-              <li>
-                <%= link_to "Logout", logout_path, class: "btn btn-primary" %>
-              </li>
-            <%else%>
-              <li>
-                <%= link_to "Sign In", login_path, class: "btn btn-primary" %>
-              </li>
-            <%end%>
-          </ul>
+          <% if logged_in? %>
+            <%= link_to "Logout", logout_path, class: "btn btn-primary" %>
+          <%else%>
+            <%= link_to "Sign In", login_path, class: "btn btn-primary" %>
+          <%end%>
 			  </div>
   		</nav>
   	</header>
