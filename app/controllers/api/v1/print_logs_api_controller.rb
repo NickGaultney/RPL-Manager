@@ -1,5 +1,7 @@
 class Api::V1::PrintLogsApiController < ApplicationController
 	skip_before_action :verify_authenticity_token
+	skip_before_action :authorized
+
 	before_action :find_log_by_id, only: [:update]
 
 	def index
