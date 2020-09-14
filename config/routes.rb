@@ -5,7 +5,8 @@ Rails.application.routes.draw do
 
   resources :users, only: [:new, :create]
   get 'api_key', to: 'users#api_key'
-  post 'api_key', to: 'users#update'
+  put 'api_key', to: 'users#update'
+  patch 'api_key', to: 'users#update'
   get 'new_key', to: 'users#new_key'
 
   resources :printers
