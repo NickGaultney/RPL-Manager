@@ -4,6 +4,10 @@ Rails.application.routes.draw do
   get 'logout', to: 'sessions#logout'
 
   resources :users, only: [:new, :create]
+  get 'api_key', to: 'users#api_key'
+  post 'api_key', to: 'users#update'
+  get 'new_key', to: 'users#new_key'
+
   resources :printers
   resources :print_logs
 
