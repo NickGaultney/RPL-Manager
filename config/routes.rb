@@ -1,17 +1,21 @@
 Rails.application.routes.draw do
+  # SESSION Routes
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'
   get 'logout', to: 'sessions#logout'
 
+  # USER Routes
   resources :users, only: [:new, :create]
+  patch 'user', to: 'users#update'
+  put 'user', to: 'users#update'
   get 'api_key', to: 'users#api_key'
-  put 'api_key', to: 'users#update'
-  patch 'api_key', to: 'users#update'
   get 'new_key', to: 'users#new_key'
-
+  
+  #PRINTER STUFF ROUTES
   resources :printers
   resources :print_logs
 
+# API Routes
   namespace :api do
     namespace :v1 do
       get '/printers_api', to: 'printers_api#index'

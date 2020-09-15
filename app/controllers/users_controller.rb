@@ -1,6 +1,7 @@
 require 'securerandom'
 
 class UsersController < ApplicationController
+	before_action :find_user_by_session, only [:edit, :api_key]
 	skip_before_action :authorized, only: [:new, :create]
 
 	def new	
@@ -28,6 +29,9 @@ class UsersController < ApplicationController
 		end
 	end
 
+	def edit
+	end
+
 	def update
 		respond_to do |format|
 	      if @user.update(user_params)
@@ -40,8 +44,10 @@ class UsersController < ApplicationController
 	    end
 	end
 
+	def destroy
+	end
+
 	def api_key
-		@user = User.find(session[:user_id])
 	end
 
 	def new_key
@@ -50,6 +56,10 @@ class UsersController < ApplicationController
 
 
 	private
+
+	def find_user_by_session
+		@user = User.find(session[:user_id])
+	end
 
     # Only allow a list of trusted parameters through.
     def user_params
