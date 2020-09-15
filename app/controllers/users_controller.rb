@@ -1,7 +1,7 @@
 require 'securerandom'
 
 class UsersController < ApplicationController
-	before_action :find_user_by_session, only [:edit, :api_key]
+	before_action :find_user_by_session, only: [:edit, :api_key]
 	skip_before_action :authorized, only: [:new, :create]
 
 	def new	
