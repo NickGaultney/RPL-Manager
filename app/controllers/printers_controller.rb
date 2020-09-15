@@ -28,14 +28,10 @@ class PrintersController < ApplicationController
   def create
     @printer = Printer.new(printer_params)
 
-    respond_to do |format|
-      if @printer.save
-        format.html { redirect_to @printer, notice: 'Printer was successfully created.' }
-        format.json { render :show, status: :created, location: @printer }
-      else
-        format.html { render :new }
-        format.json { render json: @printer.errors, status: :unprocessable_entity }
-      end
+    if @printer.save
+      redirect_to @printer, notice: 'Printer was successfully created.'
+    else
+      render :new
     end
   end
 
