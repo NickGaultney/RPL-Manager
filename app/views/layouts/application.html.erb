@@ -23,8 +23,10 @@
 			      </li>
 			    </ul>
           <% if logged_in? %>
-            <%= link_to "API Key", api_key_path, class: "btn btn-primary" %>
-            <%= link_to "Logout", logout_path, class: "btn btn-primary" %>
+            <ul>
+              <li class="nav-item"><%= link_to "API Key", api_key_path, class: "nav-link" %></li>
+              <li><%= link_to "Logout", logout_path, class: "btn btn-primary" %></li>
+            </ul>
           <%else%>
             <%= link_to "Sign In", login_path, class: "btn btn-primary" %>
           <%end%>
