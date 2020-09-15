@@ -1,7 +1,7 @@
 require 'securerandom'
 
 class UsersController < ApplicationController
-	before_action :find_user_by_session, only: [:edit, :api_key]
+	before_action :find_user_by_session, only: [:edit, :update, :api_key]
 	skip_before_action :authorized, only: [:new, :create]
 
 	def new	
@@ -14,7 +14,7 @@ class UsersController < ApplicationController
 		if @admin
 			redirect_to root_path, alert: "Cannot create new user: Only one user can exist"
 		else
-			params[:api_key] = SecureRandom.hex(16)
+			params[:user][:api_key] = SecureRandom.hex(16)
 			@user = User.new(user_params)
 			respond_to do |format|
 				if @user.save
