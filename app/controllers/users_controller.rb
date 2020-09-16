@@ -14,7 +14,7 @@ class UsersController < ApplicationController
 		if @admin
 			redirect_to root_path, alert: "Cannot create new user: Only one user can exist"
 		else
-			params[:user][:api_key] = SecureRandom.hex(16)
+			params[:user][:api_token] = SecureRandom.hex(16)
 			@user = User.new(user_params)
 			respond_to do |format|
 				if @user.save
