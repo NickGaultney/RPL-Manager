@@ -1,4 +1,4 @@
-class Api::V1::PrintersApiController < ApplicationController
+class Api::V1::PrintersApiController < Api::ApiController
 	skip_before_action :verify_authenticity_token
 	skip_before_action :authorized
 	
