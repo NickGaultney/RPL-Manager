@@ -4,7 +4,7 @@ class Api::ApiController < ApplicationController
   protected
 
   def authenticate
-    api_token = request.headers['X-Api-Key']
+    api_token = request.headers['X-Api-Token']
 
     @user = User.find_by(api_token: api_token) if api_token
 
