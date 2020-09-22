@@ -1,32 +1,41 @@
-<p>
-  <strong>Printer:</strong>
-  <%= @print_log.printer %>
-</p>
-
-<p>
-  <strong>File name:</strong>
-  <%= @print_log.file_name %>
-</p>
-
-<p>
-  <strong>Filament weight:</strong>
-  <%= @print_log.filament_weight %>
-</p>
-
-<p>
-  <strong>Print time:</strong>
-  <%= @print_log.print_time %>
-</p>
-
-<p>
-  <strong>Cost:</strong>
-  <%= @print_log.cost %>
-</p>
-
-<p>
-  <strong>Status:</strong>
-  <%= @print_log.status %>
-</p>
+<table class="table table-sm table-striped table-dark">
+  <thead>
+    <tr>
+      <th> Printer </th>
+      <th> TimeStamp </th>
+      <th> File Name </th>
+      <th> Filament Weight </th>
+      <th> Print Time </th>
+      <th> Cost </th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <div class="print_logs">
+      <div class="print_log">
+        <div class="thumbnail">
+          <div class="caption text-light">
+              <tr>
+                <td> <%= link_to @print_log.printer_name, print_log_path(@print_log), class: colorize(@print_log.status) %> </td>
+                <td> <%= @print_log.created_at.to_s.chop.chop.chop %> </td>
+                <td> <%= @print_log.file_name %> </td>
+                <td> <%= @print_log.filament_weight %>g </td>
+                <td> <%= @print_log.print_time %> min </td>
+                <td> $<%= number_with_precision @print_log.cost, :precision => 2 %> </td>
+                <td class="text-right"> 
+                  <% if logged_in? %>
+                    <%= link_to "Edit", edit_print_log_path(@print_log), class: "btn btn-default border rounded text-warning p-0 px-1" %>
+                    <%= link_to 'Delete', @print_log, method: :delete, data: { confirm: 'Are you sure?' }, 
+                    class: "btn btn-default border rounded text-danger p-0 px-1" %> 
+                  <%end%>
+                </td>
+              </tr>
+          </div>
+        </div>
+      </div>
+    </div>
+  </tbody>
+</table>
 
 <%= link_to 'Edit', edit_print_log_path(@print_log) %> |
 <%= link_to 'Back', print_logs_path %>
