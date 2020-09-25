@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  # CHANNEL Routes
+  mount ActionCable.server, at: '/cable'
+
   # SESSION Routes
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'

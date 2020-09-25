@@ -30,8 +30,7 @@ class PrintersController < ApplicationController
 
     respond_to do |format|
       if @printer.save
-        format.html { redirect_to @printer, notice: 'Printer was successfully created.' }
-        format.json { render :show, status: :created, location: @printer }
+        broadcast
       else
         format.html { render :new }
         format.json { render json: @printer.errors, status: :unprocessable_entity }
@@ -44,8 +43,7 @@ class PrintersController < ApplicationController
   def update
     respond_to do |format|
       if @printer.update(printer_params)
-        format.html { redirect_to @printer, notice: 'Printer was successfully updated.' }
-        format.json { render :show, status: :ok, location: @printer }
+        broadcast
       else
         format.html { render :edit }
         format.json { render json: @printer.errors, status: :unprocessable_entity }
@@ -58,8 +56,7 @@ class PrintersController < ApplicationController
   def destroy
     @printer.destroy
     respond_to do |format|
-      format.html { redirect_to printers_url, notice: 'Printer was successfully destroyed.' }
-      format.json { head :no_content }
+      broadcast
     end
   end
 
@@ -72,5 +69,14 @@ class PrintersController < ApplicationController
     # Only allow a list of trusted parameters through.
     def printer_params
       params.require(:printer).permit(:name, :status)
+    end
+
+    def broadcast
+      ActionCable.server.broadcast "printers_channel",
+                                    printer: @printer
+    end
+
+    def printer_render(printer)
+      render(partial: 'printer', locals: { printer: printer })
     end
 end

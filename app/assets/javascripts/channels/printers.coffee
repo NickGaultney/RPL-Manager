@@ -6,4 +6,4 @@ App.printers = App.cable.subscriptions.create "PrintersChannel",
     # Called when the subscription has been terminated by the server
 
   received: (data) ->
-    # Called when there's incoming data on the websocket for this channel
+    $('#printer-container').append data.printer
