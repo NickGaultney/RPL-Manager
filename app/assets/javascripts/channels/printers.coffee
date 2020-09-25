@@ -5,5 +5,5 @@ App.printers = App.cable.subscriptions.create "PrintersChannel",
 	disconnected: ->
 		# Called when the subscription has been terminated by the server
 
-	received: ->
+	received: (data) ->
 		$('#printer-container').load "printers #printer-container"

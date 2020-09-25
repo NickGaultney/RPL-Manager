@@ -73,6 +73,7 @@ class PrintersController < ApplicationController
     end
 
     def broadcast
-      ActionCable.server.broadcast "printers_channel"
+      ActionCable.server.broadcast "printers_channel",
+                                    printer: @printer
     end
 end
