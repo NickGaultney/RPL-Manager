@@ -31,7 +31,7 @@ class PrintersController < ApplicationController
     respond_to do |format|
       if @printer.save
         broadcast
-        redirect_to root_path
+        format.html { redirect_to printers_path }
       else
         format.html { render :new }
         format.json { render json: @printer.errors, status: :unprocessable_entity }
@@ -45,7 +45,7 @@ class PrintersController < ApplicationController
     respond_to do |format|
       if @printer.update(printer_params)
         broadcast
-        redirect_to root_path
+        format.html { redirect_to printers_path }
       else
         format.html { render :edit }
         format.json { render json: @printer.errors, status: :unprocessable_entity }
@@ -58,7 +58,6 @@ class PrintersController < ApplicationController
   def destroy
     @printer.destroy
     broadcast
-    redirect_to root_path
   end
 
   private
