@@ -6,7 +6,7 @@ App.printers = App.cable.subscriptions.create "PrintersChannel",
 		# Called when the subscription has been terminated by the server
 
 	received: (data) ->
-		$('#printer-container').load <%= root_path %>
+		$('#printer-container').load "printers"
 
 
 add_printer: (data) ->
