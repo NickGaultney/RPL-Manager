@@ -31,6 +31,7 @@ class PrintersController < ApplicationController
     respond_to do |format|
       if @printer.save
         broadcast
+        redirect_to root_path
       else
         format.html { render :new }
         format.json { render json: @printer.errors, status: :unprocessable_entity }
@@ -44,6 +45,7 @@ class PrintersController < ApplicationController
     respond_to do |format|
       if @printer.update(printer_params)
         broadcast
+        redirect_to root_path
       else
         format.html { render :edit }
         format.json { render json: @printer.errors, status: :unprocessable_entity }
@@ -55,9 +57,8 @@ class PrintersController < ApplicationController
   # DELETE /printers/1.json
   def destroy
     @printer.destroy
-    respond_to do |format|
-      broadcast
-    end
+    broadcast
+    redirect_to root_path
   end
 
   private
@@ -73,7 +74,7 @@ class PrintersController < ApplicationController
 
     def broadcast
       ActionCable.server.broadcast "printers_channel",
-                                    printer: @printer
+                                    printer: printer_render(@printer)
     end
 
     def printer_render(printer)
