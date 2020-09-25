@@ -31,7 +31,7 @@ class PrintersController < ApplicationController
     respond_to do |format|
       if @printer.save
         broadcast
-        format.html { redirect_to printers_path }
+        format.html { redirect_to printers_path, notice: 'Printer created successfully!' }
       else
         format.html { render :new }
         format.json { render json: @printer.errors, status: :unprocessable_entity }
@@ -45,7 +45,7 @@ class PrintersController < ApplicationController
     respond_to do |format|
       if @printer.update(printer_params)
         broadcast
-        format.html { redirect_to printers_path }
+        format.html { redirect_to printers_path, notice: 'Printer Updated successfully!' }
       else
         format.html { render :edit }
         format.json { render json: @printer.errors, status: :unprocessable_entity }
@@ -57,6 +57,7 @@ class PrintersController < ApplicationController
   # DELETE /printers/1.json
   def destroy
     @printer.destroy
+    flash.now[:notice] = 'Printer was successfully destroyed.'
     broadcast
   end
 
