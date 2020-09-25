@@ -73,11 +73,6 @@ class PrintersController < ApplicationController
     end
 
     def broadcast
-      ActionCable.server.broadcast "printers_channel",
-                                    printer: "test"
-    end
-
-    def printer_render(printer)
-      render(partial: 'printer', locals: { printer: printer })
+      ActionCable.server.broadcast "printers_channel"
     end
 end
