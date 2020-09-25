@@ -1,6 +1,6 @@
 <div class="printer border rounded">
   <div class="thumbnail">
-    <div class="caption text-light p-2">
+    <div class="caption text-light p-2" data-id=<%= printer.id %>>
       <h3><%= link_to printer.name, printer_path(printer), class: colorize(printer.status) %></h3>
       <p>
         <% if logged_in? %>

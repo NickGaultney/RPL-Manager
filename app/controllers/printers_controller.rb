@@ -74,7 +74,7 @@ class PrintersController < ApplicationController
 
     def broadcast
       ActionCable.server.broadcast "printers_channel",
-                                    printer: printer_render(@printer)
+                                    printer: "test"
     end
 
     def printer_render(printer)
