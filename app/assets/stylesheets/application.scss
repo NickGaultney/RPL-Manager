@@ -11,10 +11,6 @@
 	}
 }
 
-.print_log {
-	overflow: hidden;
-}
-
 .printers {
 	display: flex;
 	flex-wrap: wrap;
@@ -27,4 +23,14 @@
 	margin-bottom: 40px;
   	margin-left: 5px;
 	text-align: center;
+}
+
+.log-table{
+    height: 500px;
+    overflow:auto;
+}
+
+.log-table thead th {
+    position: sticky;
+    top: 0;
 }
