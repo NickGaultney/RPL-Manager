@@ -2,12 +2,12 @@
   <table class="table table-sm table-striped table-dark">
     <thead class= "bg-dark">
       <tr>
-        <th class= "bg-dark"> Printer </th>
-        <th class= "bg-dark"> TimeStamp </th>
-        <th class= "bg-dark"> File Name </th>
-        <th class= "bg-dark"> Filament Weight </th>
-        <th class= "bg-dark"> Print Time </th>
-        <th class= "bg-dark"> Cost </th>
+        <th class= "bg-dark"><%= sortable "printer_name", "Printer" %> </th>
+        <th class= "bg-dark"><%= sortable "created_at", "TimeStamp" %> </th>
+        <th class= "bg-dark"><%= sortable "file_name", "File Name" %> </th>
+        <th class= "bg-dark"><%= sortable "filament_weight", "Filament Weight" %> </th>
+        <th class= "bg-dark"><%= sortable "print_time", "Print Time" %> </th>
+        <th class= "bg-dark"><%= sortable "cost" %> </th>
         <th class= "bg-dark"></th>
       </tr>
     </thead>
@@ -16,3 +16,8 @@
     </tbody>
   </table>
 </div>
+
+<div class="title-container text-light">
+  <h3>Cost of Successful Prints: $<%= number_with_precision total_cost(print_logs), :precision => 2 %></h3>  
+</div>
+

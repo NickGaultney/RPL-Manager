@@ -5,7 +5,7 @@
   # GET /print_logs
   # GET /print_logs.json
   def index
-    @print_logs = PrintLog.order(created_at: :desc).all
+    @print_logs = PrintLog.order(helpers.sort_column => helpers.sort_direction).all
   end
 
   # GET /print_logs/1
