@@ -1,4 +1,6 @@
 module ApplicationHelper
+	@@calc = nil
+
 	def alert_class(flash_type)
 		case flash_type.to_sym
 			when :notice then "alert alert-info"
@@ -23,7 +25,6 @@ module ApplicationHelper
 
 	def sortable(column, title = nil)
 	  title ||= column.titleize
-	  #css_class = column == sort_column ? "current #{sort_direction}" : nil
 	  direction = column == sort_column && sort_direction == "asc" ? "desc" : "asc"
 	  link_to title, {:sort => column, :direction => direction}, {:class => "btn btn-default text-light"}
 	end
@@ -34,5 +35,16 @@ module ApplicationHelper
     
     def sort_direction
       %w[asc desc].include?(params[:direction]) ? params[:direction] : "desc"
+    end
+
+    def calculate_log_cost(print_log)
+    	@@calc ||= LogCostCalculator.new(File.join(Rails.root, 'config', 'log_cost_calculation.yml'))
+    	@@calc.set_values(print_log.print_time, print_log.filament_weight)
+
+    	@@calc.total
+    end
+
+    def reload_cost_config
+    	@@calc.reload_config if @@calc
     end
 end

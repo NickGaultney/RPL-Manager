@@ -16,7 +16,7 @@ class Api::V1::PrintLogsApiController < Api::ApiController
 		params[:printer_id] = find_printer_by_name.id
 		convert_time_to_minutes
 		convert_weight_to_grams
-		params[:cost] = helpers.calculate_cost(params[:filament_weight], params[:print_time])
+		params[:cost] = 0#helpers.calculate_cost(params[:filament_weight], params[:print_time])
 
 		@print_log = PrintLog.new(print_log_params)
 		if @print_log.save

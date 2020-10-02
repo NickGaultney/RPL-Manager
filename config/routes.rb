@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   #PRINTER STUFF ROUTES
   resources :printers
   resources :print_logs
+  get 'reload_config', to: 'print_logs#reload'
 
 # API Routes
   namespace :api do

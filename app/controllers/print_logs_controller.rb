@@ -63,6 +63,11 @@
     end
   end
 
+  def reload
+    helpers.reload_cost_config
+    redirect_to print_logs_path
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def form_fields(key)
