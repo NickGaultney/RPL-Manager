@@ -18,6 +18,8 @@ Rails.application.routes.draw do
   resources :printers
   resources :print_logs
   get 'reload_config', to: 'print_logs#reload'
+  get 'download_config', to: 'print_logs#download'
+  post 'upload_config', to: 'print_logs#upload'
 
 # API Routes
   namespace :api do

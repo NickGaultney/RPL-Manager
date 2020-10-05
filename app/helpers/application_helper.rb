@@ -38,7 +38,7 @@ module ApplicationHelper
     end
 
     def calculate_log_cost(print_log)
-    	@@calc ||= LogCostCalculator.new(File.join(Rails.root, 'config', 'log_cost_calculation.yml'))
+    	@@calc ||= LogCostCalculator.new(Rails.root.join('public', 'config', 'log_cost_calculation.yml'))
     	@@calc.set_values(print_log.print_time, print_log.filament_weight)
 
     	@@calc.total

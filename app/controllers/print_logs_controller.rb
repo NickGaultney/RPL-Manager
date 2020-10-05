@@ -68,6 +68,19 @@
     redirect_to print_logs_path
   end
 
+  def download
+    send_file File.join(Rails.root, 'public/config', 'log_cost_calculation.yml')
+  end
+
+  def upload
+    uploaded_io = params[:config_file]
+    File.open(Rails.root.join('public', 'config', 'log_cost_calculation.yml'), 'wb') do |file|
+      file.write(uploaded_io.read)
+    end
+
+    redirect_to reload_config_path
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def form_fields(key)
