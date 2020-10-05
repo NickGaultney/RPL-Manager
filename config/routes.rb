@@ -1,11 +1,4 @@
 Rails.application.routes.draw do
-  get 'config/show'
-
-  get 'config/download'
-
-  get 'config/upload'
-
-  get 'config/reload'
 
   # CHANNEL Routes
   mount ActionCable.server, at: '/cable'
@@ -22,12 +15,15 @@ Rails.application.routes.draw do
   get 'api_key', to: 'users#api_key'
   get 'new_key', to: 'users#new_key'
   
-  #PRINTER STUFF ROUTES
+  #PRINTER STUFF Routes
   resources :printers
   resources :print_logs
-  get 'reload_config', to: 'print_logs#reload'
-  get 'download_config', to: 'print_logs#download'
-  post 'upload_config', to: 'print_logs#upload'
+
+  #CONFIG Routes
+  get 'config', to: 'config#show'
+  get 'reload_config', to: 'config#reload'
+  get 'download_config', to: 'config#download'
+  post 'upload_config', to: 'config#upload'
 
 # API Routes
   namespace :api do
