@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  get 'config/show'
+
+  get 'config/download'
+
+  get 'config/upload'
+
+  get 'config/reload'
+
   # CHANNEL Routes
   mount ActionCable.server, at: '/cable'
 
