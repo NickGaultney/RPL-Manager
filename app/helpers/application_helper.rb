@@ -37,8 +37,17 @@ module ApplicationHelper
       %w[asc desc].include?(params[:direction]) ? params[:direction] : "desc"
     end
 
-    def calculate_log_cost(print_log)
+    def initialize_config
     	@@calc ||= LogCostCalculator.new(Rails.root.join('public', 'config', 'log_cost_calculation.yml'))
+    end
+
+    def get_config
+    	initialize_config
+    	@@calc.get_config
+    end
+
+    def calculate_log_cost(print_log)
+    	initialize_config
     	@@calc.set_values(print_log.print_time, print_log.filament_weight)
 
     	@@calc.total

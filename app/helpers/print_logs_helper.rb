@@ -7,7 +7,7 @@ module PrintLogsHelper
 	def total_cost(print_logs)
 		cost = 0
 		print_logs.each do |log|
-			cost += log.cost unless log.status == 3
+			cost += calculate_log_cost(log) unless log.status == 3
 		end
 		cost
 	end

@@ -19,13 +19,5 @@
 
 <div class="title-container text-light">
   <h3>Cost of Successful Prints: $<%= number_with_precision total_cost(print_logs), :precision => 2 %></h3> 
-  <div class="float-right m-2">
-    <% if logged_in? %>
-      <%= link_to 'Download Cost Config', download_config_path, class: "btn btn-default border rounded text-light" %>
-      <div class="float-right m-1">
-        <%= render 'partials/upload_config' %>
-      </div>
-    <%end%>
-  </div>
 </div>
 

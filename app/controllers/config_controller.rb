@@ -1,9 +1,10 @@
 class ConfigController < ApplicationController
   def show
+  	@config = helpers.get_config
   end
 
   def download
-  	send_file File.join(Rails.root, 'public/config', 'log_cost_calculation.yml')
+  	send_file File.join(Rails.root, 'public', 'config', 'log_cost_calculation.yml')
   end
 
   def upload
