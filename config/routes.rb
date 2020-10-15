@@ -24,7 +24,7 @@ Rails.application.routes.draw do
   get 'reload_config', to: 'config#reload'
   get 'download_config', to: 'config#download'
   post 'upload_config', to: 'config#upload'
-  patch 'edit_config', to: 'config#edit'
+  put 'edit_config', to: 'config#edit'
 
 # API Routes
   namespace :api do

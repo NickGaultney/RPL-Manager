@@ -1,6 +1,20 @@
 <div class="title-container text-light">
 	<h1>Configuration</h1>
+	
+	<div class="float-left m-2">
+		<%= link_to 'Download Cost Config', download_config_path, class: "btn btn-default border rounded text-light" %>
+	</div>
+	
+	<div class="float-right p-1 border rounded">
+		<%= form_with url: upload_config_path, id: "upload-form" do |f| %>
+			<div class="form-group">
+				<%= f.file_field :config_file, id: "upload-field", class: "text-light" %>
+				<%= f.submit "Upload Cost Config", class: "submit" %>
+			</div>
+		<% end %>
+	</div>
 </div>
+
 
 <div class="text-center">
 	<%= form_with url: edit_config_path do |f| %>
@@ -12,38 +26,30 @@
 		<div class="form-group">
 			<%= f.text_field :variable, value: "@weight", readonly: true %>
 		</div>
+	<%end%>
 
+	<%= form_with method: :put, url: edit_config_path do |f| %>
 		<h2><%= f.label :constants, class:"text-secondary" %></h2>
 		<div class="config-constants">
 			<% @config["variables"].each do |key, value| %>
 				<div class="config-constants mx-4">
 					<div class="form-group">
-						<%= f.text_field :constant, value: key, class:"form-control-plaintext text-success text-center" %>
-				    	<%= f.text_field :value, value: value %>
+						<%= f.text_field key, value: key, class:"form-control-plaintext text-success text-center", readonly: true %>
+				    	<%= f.text_field :value, value: value, readonly: true %>
 					</div>
 				</div>
 			<%end%>
 		</div>
+	<%end%>
 
+	<%= form_with method: :put, url: edit_config_path do |f| %>
 		<h2><%= f.label :calculations, class:"text-secondary" %></h2>
 		<% @config["calculations"].each do |key, value| %>
 			<div class="form-group">
-				<%= f.text_field :method, value: key, class:"form-control-plaintext text-warning text-center" %>
-		    <%= f.text_area :body, value: value, rows: 3, cols: 80, class:"form-control" %>
+				<%= f.text_field :method, value: key, class:"form-control-plaintext text-warning text-center", readonly: true %>
+		    <%= f.text_area :body, value: value, rows: 3, cols: 80, class:"form-control", readonly: true %>
 			</div>
 		<%end%>
 	<%end%>
 </div>
 
-<div class="float-left m-2">
-	<%= link_to 'Download Cost Config', download_config_path, class: "btn btn-default border rounded text-light" %>
-</div>
-
-<div class="float-right p-1 border rounded">
-	<%= form_with url: upload_config_path, id: "upload-form" do |f| %>
-		<div class="form-group">
-			<%= f.file_field :config_file, id: "upload-field", class: "text-light" %>
-			<%= f.submit "Upload Cost Config", class: "submit" %>
-		</div>
-	<% end %>
-</div>

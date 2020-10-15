@@ -20,4 +20,8 @@ class ConfigController < ApplicationController
   	helpers.reload_cost_config
     redirect_to print_logs_path
   end
+
+  def edit
+    
+  end
 end
