@@ -5,7 +5,7 @@
           <tr>
             <td> <%= link_to print_log.printer_name, print_log_path(print_log), class: colorize(print_log.status) %> </td>
             <td> <%= print_log.created_at.to_s.chop.chop.chop %> </td>
-            <td> <%= truncate(print_log.file_name, length: 30 %> </td>
+            <td> <%= truncate(print_log.file_name, length: 30) %> </td>
             <td> <%= print_log.filament_weight %>g </td>
             <td> <%= print_log.print_time %> min </td>
             <td> $<%= number_with_precision calculate_log_cost(print_log), :precision => 2 %> </td>
