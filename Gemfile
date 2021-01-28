@@ -14,8 +14,7 @@ gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets
 gem 'sassc-rails'
-gem 'bootstrap', '~> 4.3.1'
-gem 'sassc', '~> 2.1.0'
+
 #gem 'sassc-rails', '>= 2.1.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
