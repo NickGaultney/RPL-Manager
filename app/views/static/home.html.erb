@@ -1,2 +1,29 @@
-<h1>Static#home</h1>
-<p>Find me in app/views/static/home.html.erb</p>
+<%= render 'carousel' %>
+
+<div class="container-fluid section border">
+	<div class="row">
+		<div class="col-4"></div>
+		<h2 class="col-4 d-flex justify-content-center">Currently Printing</h2> 
+	</div>
+
+	<div class="row d-flex justify-content-around">
+		<% @printers.each do |printer| %>
+			<div class="col-lg-2 card">
+				<div class="card-header">
+					<h3 class="d-flex justify-content-center"><%= link_to printer.name, printer_path(printer), class: colorize(printer.status) %></h3>
+				</div>
+				<div class="card-body">
+					<p>
+						Status: <%= printer.status %>
+					</p>
+					<p class="d-flex justify-content-end">
+						<% if logged_in? %>
+							<%= link_to "Edit", edit_printer_path(printer), class: "btn btn-default border rounded text-warning p-0 px-2" %>
+							<%= link_to 'Delete', printer, method: :delete, data: { confirm: 'Are you sure?' }, class: "text-danger p-1" %>
+						<%end%>
+					</p>
+				</div>
+			</div>
+		<%end%>
+	</div>
+</div>

@@ -17,10 +17,7 @@
 
   <body class="bg-dark">
   	<%= render 'partials/navbar' %>
-    <%= render 'partials/carousel' %>
-  	<section class="container-fluid">
-      <%= render 'partials/flash' %>
-      <%= yield %>
-    </section>
+    <%= yield %>
+    <%= render 'partials/flash' %>
   </body>
 </html>
