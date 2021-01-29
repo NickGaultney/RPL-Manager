@@ -1,21 +1,19 @@
 <%= render 'carousel' %>
 
-<div class="container-fluid section border">
+<div class="container-fluid section-light pt-4">
 	<div class="row">
 		<div class="col-4"></div>
 		<h2 class="col-4 d-flex justify-content-center">Currently Printing</h2> 
 	</div>
 
-	<div class="row d-flex justify-content-around">
+	<div class="row row-cols-2 d-flex justify-content-around py-4">
 		<% @printers.each do |printer| %>
-			<div class="col-lg-2 card">
+			<div class="col-2 card">
 				<div class="card-header">
 					<h3 class="d-flex justify-content-center"><%= link_to printer.name, printer_path(printer), class: colorize(printer.status) %></h3>
 				</div>
-				<div class="card-body">
-					<p>
-						Status: <%= printer.status %>
-					</p>
+				<div class="card-body bg-primary">
+					<p class=<%=colorize(printer.status)%>><%= status_label(printer.status) %></p>
 					<p class="d-flex justify-content-end">
 						<% if logged_in? %>
 							<%= link_to "Edit", edit_printer_path(printer), class: "btn btn-default border rounded text-warning p-0 px-2" %>
@@ -26,4 +24,13 @@
 			</div>
 		<%end%>
 	</div>
+</div>
+
+<div class="container-fluid pt-4">
+	<div class="row">
+		<div class="col-4"></div>
+		<h2 class="col-4 d-flex justify-content-center">Print History</h2> 
+	</div>
+
+	<%= render partial: 'partials/log_table', locals: { print_logs: @print_logs } %>
 </div>
