@@ -1,8 +1,10 @@
-<div class="title-container text-light">
-  <h1>Printers</h1>
-  <%= link_to 'New Printer', new_printer_path, class: "btn btn-default border rounded text-light" %>
-</div>
+<div class="container-fluid fullscreen">
+	<div class="title-container text-light">
+	  <h1>Printers</h1>
+	  <%= link_to 'New Printer', new_printer_path, class: "btn btn-default border rounded text-light" %>
+	</div>
 
-<div class="printers" id="printer-container">
-  <%= render @printers %>
+	<div class="printers" id="printer-container">
+	  <%= render @printers %>
+	</div>
 </div>

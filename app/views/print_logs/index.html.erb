@@ -1,6 +1,8 @@
-<div class="title-container text-light">
-  	<h1>Print Logs</h1>
-	<%= link_to 'New Print Log', new_print_log_path, class: "btn btn-default border rounded text-light" %>
-</div>
+<div class="container-fluid fullscreen">
+	<div class="title-container text-light">
+	  	<h1>Print Logs</h1>
+		<%= link_to 'New Print Log', new_print_log_path, class: "btn btn-default border rounded text-light" %>
+	</div>
 
-<%= render partial: 'partials/log_table', locals: { print_logs: @print_logs } %>
+	<%= render partial: 'partials/log_table', locals: { print_logs: @print_logs } %>
+</div>
