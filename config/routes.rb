@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   #PRINTER STUFF Routes
   resources :printers
   resources :print_logs
+  get 'reset_print_logs', to: "print_logs#reset_print_logs"
 
   #CONFIG Routes
   get 'config', to: 'config#show'

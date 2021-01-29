@@ -64,10 +64,18 @@ class PrintLogsController < ApplicationController
   def destroy
     @print_log.destroy
     respond_to do |format|
-      format.html { redirect_to print_logs_url, notice: 'Print log was successfully destroyed.' }
+      format.html { redirect_to print_logs_path, notice: 'Print log was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
+
+  def reset_print_logs
+    PrintLog.destroy_all
+    respond_to do |format|
+      format.html { redirect_to print_logs_path, notice: 'Print logs were successfully destroyed.' }
+      format.json { head :no_content }
+    end
+  end   
 
   private
     # Use callbacks to share common setup or constraints between actions.
