@@ -1,4 +1,6 @@
-  class PrintLogsController < ApplicationController
+require 'csv'
+
+class PrintLogsController < ApplicationController
   before_action :set_print_log, only: [:show, :edit, :update, :destroy]
   skip_before_action :authorized, only: [:index, :show]
 
@@ -6,6 +8,10 @@
   # GET /print_logs.json
   def index
     @print_logs = PrintLog.order(helpers.sort_column => helpers.sort_direction).all
+    respond_to do |format|
+      format.html
+      format.csv {send_data @print_logs.to_csv}
+    end
   end
 
   # GET /print_logs/1

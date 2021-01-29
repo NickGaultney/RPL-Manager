@@ -1,6 +1,16 @@
-<div class="title-container text-light">
-  	<h1>Print Logs</h1>
-	<%= link_to 'New Print Log', new_print_log_path, class: "btn btn-default border rounded text-light" %>
+<div class="title-container d-flex bd-highlight text-light ">
+  	<h1 class="p-2 flex-grow-1 bd-highlight">Print Logs</h1>
+  	<% if logged_in? %>
+		<%= link_to 'Download Print Logs', print_logs_path(format: :csv), 
+		class: "btn btn-default border rounded text-light p-2 bd-highlight align-self-center" %>
+		<%= link_to 'Delete All Print Logs', print_logs_path, 
+		class: "btn btn-default border rounded text-light p-2 bd-highlight align-self-center" %>
+	<%end%>
 </div>
+
+<% if logged_in? %>
+	<%= link_to 'New Print Log', new_print_log_path, 
+	class: "btn btn-default border rounded text-light" %>
+<%end%>
 
 <%= render partial: 'partials/log_table', locals: { print_logs: @print_logs } %>
