@@ -27,18 +27,18 @@
 	width: 20%;
 	min-width: 200px;
 	margin-bottom: 40px;
-  	margin-left: 5px;
+	margin-left: 5px;
 	text-align: center;
 }
 
 .log-table{
-    max-height: 500px;
-    overflow:auto;
+  max-height: 500px;
+  overflow:auto;
 }
 
 .log-table thead th {
-    position: sticky;
-    top: 0;
+  position: sticky;
+  top: 0;
 }
 
 .config-constants {
@@ -58,9 +58,9 @@
 }
 
 .overlay-div{
-   height:100%;
-   width: 100%;
-   position:absolute;
-   background-color: #000;
-   opacity: 0.7;
+  height:100%;
+  width: 100%;
+  position:absolute;
+  background-color: #000;
+  opacity: 0.7;
 }
