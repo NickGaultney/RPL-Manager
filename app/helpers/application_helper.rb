@@ -23,6 +23,19 @@ module ApplicationHelper
 		end
 	end
 
+	def status_label(status)
+		case status
+		when 0
+			"Print Complete"
+		when 1
+			"Printing..."
+		when 2
+			"Idle"
+		when 3
+			"Print Failed"
+		end
+	end
+
 	def sortable(column, title = nil)
 	  title ||= column.titleize
 	  direction = column == sort_column && sort_direction == "asc" ? "desc" : "asc"

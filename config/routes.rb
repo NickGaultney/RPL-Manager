@@ -44,6 +44,6 @@ Rails.application.routes.draw do
     end
   end
 
-  root to: "printers#index"
+  root to: "static#home"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

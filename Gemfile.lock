@@ -41,14 +41,8 @@ GEM
     addressable (2.7.0)
       public_suffix (>= 2.0.2, < 5.0)
     arel (8.0.0)
-    autoprefixer-rails (9.8.4)
-      execjs
     bcrypt (3.1.16)
     bindex (0.8.1)
-    bootstrap (4.3.1)
-      autoprefixer-rails (>= 9.1.0)
-      popper_js (>= 1.14.3, < 2)
-      sassc-rails (>= 2.0.0)
     builder (3.2.4)
     byebug (11.0.1)
     capybara (3.15.1)
@@ -99,7 +93,6 @@ GEM
       mini_portile2 (~> 2.4.0)
     pg (1.2.3)
     pg (1.2.3-x86-mingw32)
-    popper_js (1.16.0)
     public_suffix (4.0.5)
     puma (3.12.6)
     rack (2.2.3)
@@ -180,7 +173,6 @@ PLATFORMS
 
 DEPENDENCIES
   bcrypt (~> 3.1.7)
-  bootstrap (~> 4.3.1)
   byebug
   capybara (>= 2.15)
   coffee-rails (~> 4.2)
@@ -190,7 +182,6 @@ DEPENDENCIES
   pg (>= 0.18, < 2.0)
   puma (~> 3.7)
   rails (~> 5.1.7)
-  sassc (~> 2.1.0)
   sassc-rails
   selenium-webdriver
   turbolinks (~> 5)
